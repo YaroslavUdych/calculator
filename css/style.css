@@ -1,0 +1,239 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: #2d2a37;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.calculator {
+  width: 400px;
+  height: 700px;
+  background-color: #2d2a37;
+  border-radius: 28px;
+  box-shadow: inset 0px -4px 5px rgba(0, 0, 0, 0.22), inset 0px 6px 8px rgba(255, 255, 255, 0.1), inset 0px 6px 5px rgba(255, 255, 255, 0.05), 0px 8px 17px rgba(0, 0, 0, 0.29), 0px 30px 30px rgba(0, 0, 0, 0.26), 0px 68px 41px rgba(0, 0, 0, 0.15), 0px 120px 48px rgba(0, 0, 0, 0.04), 0px 188px 42px rgba(0, 0, 0, 0.01), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  justify-content: space-evenly;
+  overflow: hidden;
+  row-gap: 20px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 2px -2px rgba(128, 128, 128, 0.264);
+  border-radius: 12px;
+  padding: 10px 0;
+  flex: 1 1 auto;
+  justify-content: center;
+  row-gap: 6px;
+}
+
+.expression {
+  font-size: 38px;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  color: #bebebe;
+  margin-right: 12px;
+  overflow: hidden;
+  height: 60px;
+  align-items: flex-start;
+}
+
+.result {
+  display: flex;
+  column-gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin: 0 12px;
+}
+
+.result__equal {
+  flex: 0 0 auto;
+  color: #bebebe;
+  font-size: 32px;
+  visibility: hidden;
+}
+
+.result-text-element {
+  text-align: right;
+  flex: 1 1 auto;
+  font-size: 58px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
+  row-gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+.buttons :first-child {
+  color: #975dfa;
+}
+
+.button {
+  transition: all 30ms ease;
+  width: 70px;
+  height: 70px;
+  border-radius: 10%;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.05));
+  box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06), 0px 0px 2px rgba(0, 0, 0, 0.29), 0px 2px 4px rgba(0, 0, 0, 0.26), 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 7px 7px rgba(0, 0, 0, 0.04), 0px 11px 7px rgba(0, 0, 0, 0.01);
+  color: #ebebeb;
+  font-size: 36px;
+}
+.button:active {
+  transform: scale(0.95);
+  box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.29), 0px 2px 2px rgba(0, 0, 0, 0.26), 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 5px 5px rgba(0, 0, 0, 0.04), 0px 5px 5px rgba(0, 0, 0, 0.01);
+}
+
+.button-animation-for-touch {
+  animation: animation-for-touch 200ms linear;
+}
+
+@keyframes animation-for-touch {
+  from {
+    width: 70px;
+    height: 70px;
+    border-radius: 10%;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.05));
+    box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06), 0px 0px 2px rgba(0, 0, 0, 0.29), 0px 2px 4px rgba(0, 0, 0, 0.26), 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 7px 7px rgba(0, 0, 0, 0.04), 0px 11px 7px rgba(0, 0, 0, 0.01);
+    font-size: 36px;
+  }
+  to {
+    transform: scale(0.99);
+    box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.29), 0px 2px 2px rgba(0, 0, 0, 0.26), 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 5px 5px rgba(0, 0, 0, 0.04), 0px 5px 5px rgba(0, 0, 0, 0.01);
+  }
+}
+.sign {
+  background-color: #462878;
+  box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.1019607843), 0px 0px 2px rgba(0, 0, 0, 0.29), 0px 2px 4px rgba(0, 0, 0, 0.26), 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 7px 7px rgba(0, 0, 0, 0.04), 0px 11px 7px rgba(0, 0, 0, 0.01);
+}
+
+.equal {
+  background-color: #7f45e2;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .screen {
+    box-shadow: 0 4px 2px -2px rgba(128, 128, 128, 0.264);
+  }
+  .buttons {
+    padding: 0 5px;
+  }
+  .button {
+    width: 85px;
+    height: 85px;
+  }
+}
+@media (max-width: 390px) {
+  .button {
+    width: 75px;
+    height: 75px;
+  }
+  .buttons {
+    gap: 10px;
+  }
+}
+@media (max-width: 345px) {
+  .button {
+    width: 60px;
+    height: 60px;
+  }
+}
